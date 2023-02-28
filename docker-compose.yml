@@ -1,0 +1,21 @@
+version: "3.8"
+
+services:
+  marten-db:
+    image: "postgres:latest"
+    pull_policy: always
+    ports:
+      - "5432:5432"
+    volumes:
+      - myfreelancegigs-db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: ${MARTEN_USER}
+      POSTGRES_PASSWORD: ${MARTEN_PASS}
+      POSTGRES_DB: ${MARTEN_DB}
+      
+      
+volumes:
+  myfreelancegigs-db:
+    driver: local
+      
+    
